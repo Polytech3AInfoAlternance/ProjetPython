@@ -1,2 +1,5 @@
 if __name__ == "__main__":
-    print('ok moduleAnalyseDonneesBrutes.py')
+    print('ok moduleChargementDonnees.py')
+
+def main():
+    print('moduleChargementDonnees is ready')

@@ -1,0 +1,3 @@
+import moduleChargementDonnees
+
+moduleChargementDonnees.main()
