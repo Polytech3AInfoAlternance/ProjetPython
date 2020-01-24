@@ -23,12 +23,12 @@ class ChargementManager:
             listNameSite.append(site.name)
         return listNameSite
 
-    def ReadCSV(self, CSVPAth, CSVColumn, CSVType):
-        print(CSVPAth + ' -> ' + CSVColumn + ' -> ' + CSVType)
+    def ReadCSV(self, CSVPAth, CSVColumn):
+        df = csvDF.csv_to_df(CSVPAth, CSVColumn)
+        return df
 
     def ReadJSON(self, JSONPath):
         data = parse.readJson(JSONPath)
-
         # for each site, read all temp and conso files
         for site in data['sites']:
 
@@ -36,14 +36,13 @@ class ChargementManager:
 
             # for each temp file, call the csv to data frame function
             for tempFiles in site['temp']:
-                dataFrameTemp = self.ReadCSV('jeu_de_donnees/' + site['nomSite'] + tempFiles, str(data['fieldTemp']), 'temp')
-
-                #add dataframe temp
+                dataFrameTemp = self.ReadCSV('jeu_de_donnees/' + site['nomSite'] + tempFiles, str(data['fieldTemp']))
+                mySite.addTempList(dataFrameTemp)
 
             # for each conso file, call the csv to data frame function
             for consoFiles in site['conso']:
-                dataFrameConso = self.ReadCSV('jeu_de_donnees/' + site['nomSite'] + consoFiles, str(data['fieldConso']), 'conso')
-                mySite
+                dataFrameConso = self.ReadCSV('jeu_de_donnees/' + site['nomSite'] + consoFiles, str(data['fieldConso']))
+                mySite.addConsoList(dataFrameConso)
 
             self.sites_.append(mySite)
-
+       
