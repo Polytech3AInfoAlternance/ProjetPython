@@ -25,15 +25,8 @@ class ChargementManager:
             for consoFiles in site['conso']:
                 self.ReadCSV('jeu_de_donnees/' + site['nomSite'] + consoFiles, str(data['fieldConso']), 'conso')
 
-<<<<<<< HEAD
-
 def main():
-=======
-def main():
-    dataRepPath = 'entrer le chemin des données ici'
     print('\nmoduleChargementDonnees is ready')
->>>>>>> ffb342eefcdb74f7af9ea493b3e3cf28d513f385
 
     instance = ChargementManager()
     instance.ReadJSON('data.json')
-    instance.GetCSV("hello")
