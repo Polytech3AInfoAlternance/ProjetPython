@@ -1,4 +1,5 @@
 import moduleChargementDonneesPackage.parseConfigJson as parse
+from moduleChargementDonneesPackage.site import Site
 import moduleChargementDonneesPackage.csvToDataFrame as csvDF
 
 if __name__ == "__main__":
@@ -6,6 +7,8 @@ if __name__ == "__main__":
 
 
 class ChargementManager:
+    sites_ = []
+
     def GetCSV(self, CSVPath):
         print(CSVPath)
 
@@ -17,6 +20,10 @@ class ChargementManager:
 
         # for each site, read all temp and conso files
         for site in data['sites']:
+
+            mySite = Site(site['nomSite'])
+            self.sites_.append(mySite)
+
             # for each temp file, call the csv to data frame function
             for tempFiles in site['temp']:
                 self.ReadCSV('jeu_de_donnees/' + site['nomSite'] + tempFiles, str(data['fieldTemp']), 'temp')
