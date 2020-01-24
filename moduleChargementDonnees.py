@@ -25,30 +25,24 @@ class ChargementManager:
 
     def ReadCSV(self, CSVPAth, CSVColumn):
         df = csvDF.csv_to_df(CSVPAth, CSVColumn)
-        print(df)
+        return df
 
     def ReadJSON(self, JSONPath):
         data = parse.readJson(JSONPath)
-
         # for each site, read all temp and conso files
         for site in data['sites']:
 
             mySite = Site(site['nomSite'])
-            self.sites_.append(mySite)
 
             # for each temp file, call the csv to data frame function
             for tempFiles in site['temp']:
-                self.ReadCSV('../jeu_de_donnees/' + site['nomSite'] + '/' + tempFiles, data['fieldTemp'])
+                dataFrameTemp = self.ReadCSV('jeu_de_donnees/' + site['nomSite'] + tempFiles, str(data['fieldTemp']))
+                mySite.addTempList(dataFrameTemp)
 
             # for each conso file, call the csv to data frame function
             for consoFiles in site['conso']:
-                self.ReadCSV('../jeu_de_donnees/' + site['nomSite'] + '/' + consoFiles, data['fieldConso'])
+                dataFrameConso = self.ReadCSV('jeu_de_donnees/' + site['nomSite'] + consoFiles, str(data['fieldConso']))
+                mySite.addConsoList(dataFrameConso)
 
-
-def main():
-    dataRepPath = 'entrer le chemin des données ici'
-    print('\nmoduleChargementDonnees is ready')
-    instance = ChargementManager()
-    instance.ReadJSON('data.json')
-    # instance.GetCSV("hello")
+            self.sites_.append(mySite)
        
