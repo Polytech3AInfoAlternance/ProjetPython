@@ -6,10 +6,8 @@ class Site:
     def __init__(self, name):
         self.name = name
 
-    def setTempList(self,ptemp):
-        for temp in ptemp :
-            self.tempList.append(temp)
+    def addTempList(self,ptemp):
+        self.tempList.append(ptemp)
 
-    def setConsoList(self,pconso):
-        for conso in pconso :
-            self.tempList.append(conso)
+    def addConsoList(self,pconso):
+        self.tempList.append(pconso)
