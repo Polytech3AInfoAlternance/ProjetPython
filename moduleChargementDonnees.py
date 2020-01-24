@@ -17,6 +17,12 @@ class ChargementManager:
             if site.name == name:
                 return site
 
+    def GetListNameSite(self):
+        listNameSite = []
+        for site in self.sites_:
+            listNameSite.append(site.name)
+        return listNameSite
+
     def ReadCSV(self, CSVPAth, CSVColumn, CSVType):
         print(CSVPAth + ' -> ' + CSVColumn + ' -> ' + CSVType)
 
