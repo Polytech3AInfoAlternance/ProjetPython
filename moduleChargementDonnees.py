@@ -9,8 +9,9 @@ class ChargementManager:
     def GetCSV(self, CSVPath):
         print(CSVPath)
 
-    def ReadCSV(self, CSVPAth, CSVColumn, CSVType):
-        print(CSVPAth + ' -> ' + CSVColumn + ' -> ' + CSVType)
+    def ReadCSV(self, CSVPAth, CSVColumn):
+        df = csvDF.csv_to_df(CSVPAth, CSVColumn)
+        print(df)
 
     def ReadJSON(self, JSONPath):
         data = parse.readJson(JSONPath)
@@ -19,21 +20,16 @@ class ChargementManager:
         for site in data['sites']:
             # for each temp file, call the csv to data frame function
             for tempFiles in site['temp']:
-                self.ReadCSV('jeu_de_donnees/' + site['nomSite'] + tempFiles, str(data['fieldTemp']), 'temp')
+                self.ReadCSV('../jeu_de_donnees/' + site['nomSite'] + '/' + tempFiles, data['fieldTemp'])
 
             # for each conso file, call the csv to data frame function
             for consoFiles in site['conso']:
-                self.ReadCSV('jeu_de_donnees/' + site['nomSite'] + consoFiles, str(data['fieldConso']), 'conso')
+                self.ReadCSV('../jeu_de_donnees/' + site['nomSite'] + '/' + consoFiles, data['fieldConso'])
 
-<<<<<<< HEAD
 
-def main():
-=======
 def main():
     dataRepPath = 'entrer le chemin des données ici'
     print('\nmoduleChargementDonnees is ready')
->>>>>>> ffb342eefcdb74f7af9ea493b3e3cf28d513f385
-
     instance = ChargementManager()
     instance.ReadJSON('data.json')
-    instance.GetCSV("hello")
+    # instance.GetCSV("hello")
