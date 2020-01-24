@@ -33,16 +33,17 @@ class ChargementManager:
         for site in data['sites']:
 
             mySite = Site(site['nomSite'])
-            self.sites_.append(mySite)
 
             # for each temp file, call the csv to data frame function
             for tempFiles in site['temp']:
-                self.ReadCSV('jeu_de_donnees/' + site['nomSite'] + tempFiles, str(data['fieldTemp']), 'temp')
+                dataFrameTemp = self.ReadCSV('jeu_de_donnees/' + site['nomSite'] + tempFiles, str(data['fieldTemp']), 'temp')
+
                 #add dataframe temp
 
             # for each conso file, call the csv to data frame function
             for consoFiles in site['conso']:
-                self.ReadCSV('jeu_de_donnees/' + site['nomSite'] + consoFiles, str(data['fieldConso']), 'conso')
-                # add dataframe conso
+                dataFrameConso = self.ReadCSV('jeu_de_donnees/' + site['nomSite'] + consoFiles, str(data['fieldConso']), 'conso')
+                mySite
 
+            self.sites_.append(mySite)
 
