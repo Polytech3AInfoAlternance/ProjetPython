@@ -1,13 +1,8 @@
 import json
 
-def readJson():
+def readJson(path):
 
-    with open('data.json') as jsonfile:
+    with open(path) as jsonfile:
         data = json.load(jsonfile)
 
-    for site in data['sites']:
-        print(site['nomSite'])
-        for tempFiles in site['temp']:
-            print(tempFiles)
-        for consoFiles in site['conso']:
-            print(consoFiles)
+    return data

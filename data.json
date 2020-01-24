@@ -1,6 +1,6 @@
 {
   "fieldConso" : ["TOT_A","PUISSANCE_A"],
-  "fieldTemp" : ["°C"],
+  "fieldTemp" : ["CV"],
  "sites": [ {
     "nomSite" : "01000017A6",
     "temp" : ["Comptage\\Tarif Vert A8.csv"],
