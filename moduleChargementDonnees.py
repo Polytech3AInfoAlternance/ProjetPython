@@ -11,7 +11,7 @@ class ChargementManager:
         print("CSV")
 
     def ReadJSON(self, JSONPath):
-        parse.readJson('data.json')
+        parse.readJson(JSONPath)
         print("JSON")
 
 def main():
@@ -21,4 +21,5 @@ def main():
 
 
     instance = ChargementManager()
-    instance.GetCSV("hello");
+    instance.ReadJSON('data.json')
+    instance.GetCSV("hello")
