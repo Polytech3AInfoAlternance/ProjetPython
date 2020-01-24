@@ -9,8 +9,10 @@ if __name__ == "__main__":
 class ChargementManager:
     sites_ = []
 
-    def GetCSV(self, CSVPath):
-        print(CSVPath)
+    def GetSite(self, name):
+        for site in self.sites_:
+            if site.name == name:
+                return site
 
     def ReadCSV(self, CSVPAth, CSVColumn, CSVType):
         print(CSVPAth + ' -> ' + CSVColumn + ' -> ' + CSVType)
@@ -27,10 +29,12 @@ class ChargementManager:
             # for each temp file, call the csv to data frame function
             for tempFiles in site['temp']:
                 self.ReadCSV('jeu_de_donnees/' + site['nomSite'] + tempFiles, str(data['fieldTemp']), 'temp')
+                #add dataframe
 
             # for each conso file, call the csv to data frame function
             for consoFiles in site['conso']:
                 self.ReadCSV('jeu_de_donnees/' + site['nomSite'] + consoFiles, str(data['fieldConso']), 'conso')
+                # add dataframe
 
 def main():
     print('\nmoduleChargementDonnees is ready')
