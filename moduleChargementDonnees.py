@@ -9,6 +9,9 @@ if __name__ == "__main__":
 class ChargementManager:
     sites_ = []
 
+    def __init__(self):
+        print('moduleChargementDonnees is ready')
+
     def GetSite(self, name):
         for site in self.sites_:
             if site.name == name:
@@ -29,15 +32,11 @@ class ChargementManager:
             # for each temp file, call the csv to data frame function
             for tempFiles in site['temp']:
                 self.ReadCSV('jeu_de_donnees/' + site['nomSite'] + tempFiles, str(data['fieldTemp']), 'temp')
-                #add dataframe
+                #add dataframe temp
 
             # for each conso file, call the csv to data frame function
             for consoFiles in site['conso']:
                 self.ReadCSV('jeu_de_donnees/' + site['nomSite'] + consoFiles, str(data['fieldConso']), 'conso')
-                # add dataframe
+                # add dataframe conso
 
-def main():
-    print('\nmoduleChargementDonnees is ready')
 
-    instance = ChargementManager()
-    instance.ReadJSON('data.json')
