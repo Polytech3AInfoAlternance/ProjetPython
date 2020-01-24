@@ -1,7 +1,9 @@
 import moduleChargementDonneesPackage.parseConfigJson as parse
+import moduleChargementDonneesPackage.csvToDataFrame as csvDF
 
 if __name__ == "__main__":
     print('ok moduleChargementDonnees.py')
+
 
 class ChargementManager:
     def GetCSV(self, CSVPath):
@@ -14,11 +16,8 @@ class ChargementManager:
         parse.readJson(JSONPath)
         print("JSON")
 
+
 def main():
-    dataRepPath = 'entrer le chemin des données ici'
-    print('\nmoduleChargementDonnees is ready')
-
-
 
     instance = ChargementManager()
     instance.ReadJSON('data.json')
