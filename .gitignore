@@ -1,5 +1,5 @@
 .pyc
 .cfg
 venv/*
-.idea/*
-.__pycache__/*
+idea/*
+__pycache__/*
