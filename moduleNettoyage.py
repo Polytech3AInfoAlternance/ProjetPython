@@ -61,15 +61,16 @@ if __name__ == "__main__":
     print('ok moduleNettoyage')
 
 def main(managerDonnees):
-    print(managerDonnees.GetSite('010000179B').consoList)
-    #for site in managerDonnees.GetListNameSite():
-     #   df = pd.DataFrame(data=managerDonnees.GetSite(site).consoList)
-      #  print(df)
-        # dg = pd.DataFrame(data=managerDonnees.Get
-        # print(managerDonnees.GetSite(site).tempList)
+    #print(managerDonnees.GetSite('010000179B').consoList)
+    for site in managerDonnees.GetListNameSite():
+        df = managerDonnees.GetSite(site).consoList
+        dg = managerDonnees.GetSite(site).tempList
+        print(df)
+        #µprint(dg)
         #d = {'col1': [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2], 'col2': [3, -4, 5, 6, -5, 9, 7, 1, 9, -8, 1, 4, -1, 139]}
         #df = pd.DataFrame(data=d)
-        #lancer_nettoyage(df, 'col2', 6)
-        #print(df)
+        lancer_nettoyage(df, 'TOT_A', 6)
+        lancer_nettoyage(df, df[1], 6)
+        print(df)
 
 
