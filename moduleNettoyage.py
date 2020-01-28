@@ -1,6 +1,10 @@
 
 import numpy as np
 import pandas as pd
+# from moduleChargementDonnees import ChargementManager
+
+
+
 #  Définitions des classes
 
 #  Définitions des fonctions
@@ -35,11 +39,26 @@ def nettoyage(df, column_name, moyenne):
     ecart_moyen = ecart_moyen/i
     for i, row in df.iterrows():
         val = df.at[i, column_name]
-        if val > 1.5*ecart_moyen:
-            df.at[i, column_name] = val%ecart_moyen
-        elif val < -1.5*ecart_moyen:
-            df.at[i, column_name] = -(val%ecart_moyen)
-    return df
+        if val > 2*ecart_moyen:
+            df.at[i, column_name] = 2*ecart_moyen
+        else:
+            if val < -2*ecart_moyen:
+                df.at[i, column_name] = -2 * ecart_moyen
+            else:
+                compteurMoyenne = compteurMoyenne+df.at[i, column_name]
+    moyenne = compteurMoyenne/i
+    return [df, moyenne]
+
+# def remove_outlier(df_in, col_name):
+#     q1 = df_in[col_name].quantile(0.25)
+#     q3 = df_in[col_name].quantile(0.75)
+#     iqr = q3 - q1  # ecart interquartile
+#     fence_low = q1 - 1.5 * iqr
+#     fence_high = q3 + 1.5 * iqr
+#     df_out = df_in.loc[(df_in[col_name] > fence_low) & (df_in[col_name] < fence_high)]
+#     df_ab = df_in.loc[(df_in[col_name] < fence_low) & (df_in[col_name] > fence_high)]
+#
+#     return df_out
 
 def get_moyenne_propre(df, column_name):
     moyenne = df[column_name].mean()
@@ -65,9 +84,18 @@ def get_moyenne_propre(df, column_name):
 
 #  Main
 if __name__ == "__main__":
-    d = {'col1': [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
-         'col2': [93, -34, 55, 36, -75, 89, 67, 21, 49, -38, 12, 14, -11112, 1393]}
-    df = pd.DataFrame(data=d)
-    lancer_nettoyage_index(df, 1, 3)
-    print(df)
     print('ok moduleNettoyage')
+
+def main(managerDonnees):
+    print(managerDonnees.GetSite('010000179B').consoList)
+    #for site in managerDonnees.GetListNameSite():
+     #   df = pd.DataFrame(data=managerDonnees.GetSite(site).consoList)
+      #  print(df)
+        # dg = pd.DataFrame(data=managerDonnees.Get
+        # print(managerDonnees.GetSite(site).tempList)
+        #d = {'col1': [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2], 'col2': [3, -4, 5, 6, -5, 9, 7, 1, 9, -8, 1, 4, -1, 139]}
+        #df = pd.DataFrame(data=d)
+        #lancer_nettoyage(df, 'col2', 6)
+        #print(df)
+
+
