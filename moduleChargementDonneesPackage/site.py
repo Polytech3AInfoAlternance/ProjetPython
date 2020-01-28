@@ -5,9 +5,10 @@ class Site:
 
     def __init__(self, name):
         self.name = name
+        print('Site créé -> ' + name)
 
-    def addTempList(self,ptemp):
+    def addTempList(self, ptemp):
         self.tempList.append(ptemp)
 
-    def addConsoList(self,pconso):
-        self.tempList.append(pconso)
+    def addConsoList(self, pconso):
+        self.consoList.append(pconso)
