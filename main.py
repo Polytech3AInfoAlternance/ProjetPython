@@ -1,7 +1,11 @@
 from moduleChargementDonnees import ChargementManager
+from moduleAnalyseDonneesBrutes import Analyse
 
 managerDonnees = ChargementManager()
 managerDonnees.ReadJSON('data.json')
+
+site1 = Analyse(managerDonnees.GetSite("0100001797"));
+site1.TracePlot()
 
 print('Chargement des données terminé')
 
@@ -16,4 +20,3 @@ print('Chargement des données terminé')
     print(managerDonnees.GetSite(site).tempList)'''
 
 #-------------------VOS CODES-------------------#
-
