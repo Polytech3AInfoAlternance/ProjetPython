@@ -3,86 +3,86 @@
   "fieldTemp" : ["CV"],
  "sites": [ {
     "nomSite" : "01000017A6",
-    "temp" : ["Comptage\\Tarif Vert A8.csv"],
-    "conso" :  [
-      "Froid alim - C1-\\Temp. ext.reprise condenseur.csv",
-      "Froid alim - C1+\\Temp. ext.reprise condenseur.csv",
-      "Froid alim - C2+\\Temp. ext.reprise condenseur.csv"
+    "conso" : ["Comptage/Tarif Vert A8.csv"],
+    "temp" :  [
+      "Froid alim - C1-/Temp. ext.reprise condenseur.csv",
+      "Froid alim - C1+/Temp. ext.reprise condenseur.csv",
+      "Froid alim - C2+/Temp. ext.reprise condenseur.csv"
     ]
     },
   {
     "nomSite" : "010000179B",
-    "temp" : ["Comptage\\Tarif Vert A8.csv"],
-    "conso" : [
-      "Froid alim - C1-\\Temp. ext.reprise condenseur.csv",
-      "Froid alim - C1+\\Temp. ext.reprise condenseur.csv",
-      "Froid alim - C2+\\Temp. ext.reprise condenseur.csv"
+    "conso" : ["Comptage/Tarif Vert A8.csv"],
+    "temp" : [
+      "Froid alim - C1-/Temp. ext.reprise condenseur.csv",
+      "Froid alim - C1+/Temp. ext.reprise condenseur.csv",
+      "Froid alim - C2+/Temp. ext.reprise condenseur.csv"
     ]
   },
   {
     "nomSite" : "0100001707",
-    "temp" : ["Comptage\\Tarif Vert A8.csv"],
-    "conso" : [
-      "Froid alim - C1-\\Temp. ext.reprise condenseur.csv",
-      "Froid alim - C1+\\Temp. ext.reprise condenseur.csv",
-      "Froid alim - C2+\\Temp. ext.reprise condenseur.csv",
-      "Froid alim - C2-\\Temp. ext.reprise condenseur.csv"
+    "conso" : ["Comptage/Tarif Vert A8.csv"],
+    "temp" : [
+      "Froid alim - C1-/Temp. ext.reprise condenseur.csv",
+      "Froid alim - C1+/Temp. ext.reprise condenseur.csv",
+      "Froid alim - C2+/Temp. ext.reprise condenseur.csv",
+      "Froid alim - C2-/Temp. ext.reprise condenseur.csv"
     ]
   },
   {
     "nomSite" : "0100001717",
-    "temp" : ["Comptage\\Tarif Vert A8.csv"],
-    "conso" : [
-      "Froid alim - C1-\\Temp. ext.reprise condenseur.csv",
-      "Froid alim - C1+\\Temp. ext.reprise condenseur.csv",
-      "Froid alim - C2+\\Temp. ext.reprise condenseur.csv"
+    "conso" : ["Comptage/Tarif Vert A8.csv"],
+    "temp" : [
+      "Froid alim - C1-/Temp. ext.reprise condenseur.csv",
+      "Froid alim - C1+/Temp. ext.reprise condenseur.csv",
+      "Froid alim - C2+/Temp. ext.reprise condenseur.csv"
     ]
   },
   {
     "nomSite" : "0100001721",
-    "temp" : ["Comptage\\Tarif Vert A8.csv"],
-    "conso" : [
-      "Froid alim - C+1EG\\Temp. ext.reprise condenseur.csv",
-      "Froid alim - C+12G\\Temp. ext.reprise condenseur.csv",
-      "Froid alim - C2-\\Temp. ext.reprise condenseur.csv"
+    "conso" : ["Comptage/Tarif Vert A5.csv"],
+    "temp" : [
+      "Froid alim - C+1EG/Temp. ext.reprise condenseur.csv",
+      "Froid alim - C+2EG/Temp. ext.reprise condenseur.csv",
+      "Froid alim - C2-/Temp. ext.reprise condenseur.csv"
     ]
   },
   {
     "nomSite" : "0100001722",
-    "temp" : ["Comptage\\Tarif Vert A8.csv"],
-   "conso" : [
-      "Froid alim - C1-\\Temp. ext.reprise condenseur.csv",
-      "Froid alim - C1+\\Temp. ext.reprise condenseur.csv",
-      "Froid alim - C2+\\Temp. ext.reprise condenseur.csv",
-      "Froid alim - C2-\\Temp. ext.reprise condenseur.csv"
+    "conso" : ["Comptage/Tarif Vert A8.csv"],
+   "temp" : [
+      "Froid alim - C1-/Temp. ext.reprise condenseur.csv",
+      "Froid alim - C1+/Temp. ext.reprise condenseur.csv",
+      "Froid alim - C2+/Temp. ext.reprise condenseur.csv",
+      "Froid alim - C2-/Temp. ext.reprise condenseur.csv"
     ]
   },
     {
     "nomSite" : "0100001746",
-    "temp" : ["Comptage\\Tarif Vert A8.csv"],
-    "conso" : [
-      "Froid alim - C1-\\Temp. ext.reprise condenseur.csv",
-      "Froid alim - C1+\\Temp. ext.reprise condenseur.csv",
-      "Froid alim - C2+\\Temp. ext.reprise condenseur.csv",
-      "Froid alim - C2-\\Temp. ext.reprise condenseur.csv"
+    "conso" : ["Comptage/Tarif Vert A5.csv"],
+    "temp" : [
+      "Froid alim - C1-/Temp. ext.reprise condenseur.csv",
+      "Froid alim - C1+/Temp. ext.reprise condenseur.csv",
+      "Froid alim - C2+/Temp. ext.reprise condenseur.csv",
+      "Froid alim - C2-/Temp. ext.reprise condenseur.csv"
     ]
   },
   {
     "nomSite" : "0100001747",
-    "temp" : ["Comptage\\Tarif Vert A8.csv"],
-     "conso" : [
-      "Froid alim - C1-\\Temp. ext.reprise condenseur.csv",
-      "Froid alim - C1+\\Temp. ext.reprise condenseur.csv"
+    "conso" : ["Comptage/Tarif Vert A8.csv"],
+     "temp" : [
+      "Froid alim - C1-/Temp. ext.reprise condenseur.csv",
+      "Froid alim - C1+/Temp. ext.reprise condenseur.csv"
      ]
   },
   {
     "nomSite" : "0100001797",
-    "temp" : ["Comptage\\Tarif Vert A8.csv"],
-     "conso" : [
-      "Froid alim - C1-\\Temp. ext.reprise condenseur.csv",
-      "Froid alim - C1+\\Temp. ext.reprise condenseur.csv",
-      "Froid alim - C2+\\Temp. ext.reprise condenseur.csv",
-      "Froid alim - C2-\\Temp. ext.reprise condenseur.csv"
+    "conso" : ["Comptage/Tarif Vert A8.csv"],
+     "temp" : [
+      "Froid alim - C1-/Temp. ext.reprise condenseur.csv",
+      "Froid alim - C1+/Temp. ext.reprise condenseur.csv",
+      "Froid alim - C2+/Temp. ext.reprise condenseur.csv",
+      "Froid alim - C2-/Temp. ext.reprise condenseur.csv"
     ]
   }
 ]
