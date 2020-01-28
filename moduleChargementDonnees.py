@@ -35,11 +35,29 @@ class ChargementManager:
             # for each temp file, call the csv to data frame function
             for tempFiles in site['temp']:
                 dataFrameTemp = self.ReadCSV('jeu_de_donnees/' + site['nomSite'] + '/' + tempFiles, data['fieldTemp'])
+                for it in dataFrameTemp['CV']:
+                    try:
+                        it = float(it)
+                    except:
+                        continue
+
                 mySite.addTempList(dataFrameTemp)
 
             # for each conso file, call the csv to data frame function
             for consoFiles in site['conso']:
                 dataFrameConso = self.ReadCSV('jeu_de_donnees/' + site['nomSite'] + '/'  + consoFiles, data['fieldConso'])
+                for it in dataFrameConso['TOT_A']:
+                    try:
+                        it = float(it)
+                    except:
+                        continue
+
+                for it in dataFrameConso['PUISSANCE_A']:
+                    try:
+                        it = float(it)
+                    except:
+                        continue
+
                 mySite.addConsoList(dataFrameConso)
 
             self.sites_.append(mySite)
