@@ -10,3 +10,8 @@ print(managerDonnees.GetSite("0100001797").name)
 
 
 #-------------------VOS CODES-------------------#
+
+#for site in managerDonnees.GetListNameSite():
+
+    #print(managerDonnees.GetSite(site).tempList)
+    #print(managerDonnees.GetSite(site).consoList)
