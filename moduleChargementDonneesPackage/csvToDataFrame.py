@@ -16,4 +16,8 @@ def csv_to_df(path, rows):
     for i in range(0, len(rows)):
         fields.append(rows[i])
     df_result.columns = fields
+    df_result = df_result.iloc[2:]
+    for col in df_result.columns:
+        if col != 'Date':
+            df_result[col] = pd.to_numeric(df_result[col],errors='ignore')
     return df_result
