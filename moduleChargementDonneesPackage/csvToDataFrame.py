@@ -10,7 +10,7 @@ def csv_to_df(path, rows):
     for j in range(1, len(columns)):
         for value in rows:
             if columns[j] == value:
-                print(value)
+                #print(value)
                 indexToStore.append(j)
     df_result = df_split[indexToStore]
     for i in range(0, len(rows)):
