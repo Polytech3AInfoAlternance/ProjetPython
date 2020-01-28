@@ -1,6 +1,6 @@
 import moduleChargementDonneesPackage.parseConfigJson as parse
 from moduleChargementDonneesPackage.site import Site
-import moduleChargementDonneesPackage.csvToDataFrame as csvDF
+#import moduleChargementDonneesPackage.csvToDataFrame as csvDF
 
 if __name__ == "__main__":
     print('ok moduleChargementDonnees.py')
