@@ -1,4 +1,5 @@
 from moduleChargementDonnees import ChargementManager
+import moduleNettoyage
 
 managerDonnees = ChargementManager()
 managerDonnees.ReadJSON('data.json')
@@ -16,4 +17,4 @@ print('Chargement des données terminé')
     print(managerDonnees.GetSite(site).tempList)'''
 
 #-------------------VOS CODES-------------------#
-
+moduleNettoyage.main(managerDonnees)
