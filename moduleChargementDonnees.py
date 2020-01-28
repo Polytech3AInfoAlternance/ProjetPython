@@ -42,6 +42,8 @@ class ChargementManager:
                         continue
 
                 mySite.addTempList(dataFrameTemp)
+                for it in dataFrameTemp["CV"]:
+                    print(type(it))
 
             # for each conso file, call the csv to data frame function
             for consoFiles in site['conso']:
@@ -59,7 +61,6 @@ class ChargementManager:
                         continue
 
                 mySite.addConsoList(dataFrameConso)
-
             self.sites_.append(mySite)
 
 
