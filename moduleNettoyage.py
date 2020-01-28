@@ -12,6 +12,7 @@ def lancer_nettoyage(df, column_name, nb_iter):
     df = tab[0]
     for k in range(1, nb_iter):
         tab = nettoyage(df, column_name, moyenneGlobale)
+    return tab[0]
 
 def nettoyage(df, column_name, moyenne):
     ecart_moyen = 0
