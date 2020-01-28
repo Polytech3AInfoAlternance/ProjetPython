@@ -3,7 +3,6 @@ import moduleNettoyage
 
 managerDonnees = ChargementManager()
 managerDonnees.ReadJSON('data.json')
-
 print('Chargement des données terminé')
 
 #Exemple d'utilisation afin de récupérer le nom d'un site

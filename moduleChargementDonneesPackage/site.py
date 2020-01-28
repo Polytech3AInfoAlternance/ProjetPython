@@ -1,10 +1,10 @@
 class Site:
 
-    tempList = []
-    consoList = []
-
     def __init__(self, name):
         self.name = name
+        self.consoList = []
+        self.tempList = []
+
         print('Site créé -> ' + name)
 
     def addTempList(self, ptemp):

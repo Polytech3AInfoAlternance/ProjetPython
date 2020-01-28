@@ -31,9 +31,7 @@ class ChargementManager:
         data = parse.readJson(JSONPath)
         # for each site, read all temp and conso files
         for site in data['sites']:
-
             mySite = Site(site['nomSite'])
-
             # for each temp file, call the csv to data frame function
             for tempFiles in site['temp']:
                 dataFrameTemp = self.ReadCSV('jeu_de_donnees/' + site['nomSite'] + '/' + tempFiles, data['fieldTemp'])
@@ -45,4 +43,5 @@ class ChargementManager:
                 mySite.addConsoList(dataFrameConso)
 
             self.sites_.append(mySite)
-       
+
+
