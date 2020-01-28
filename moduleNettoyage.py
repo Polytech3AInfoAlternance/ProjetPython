@@ -69,6 +69,23 @@ def get_moyenne_propre(df, column_name):
     moyenne = compteurMoyenne / cpt
     return moyenne
 
+def remove_outlier(df_in, col_name):
+    df_in[col_name].fillna(0, inplace=True)
+    q1 = df_in[col_name].quantile(0.25)
+    q3 = df_in[col_name].quantile(0.75)
+    iqr = q3-q1 #Interquartile range
+    fence_low  = q1-1.5*iqr
+    fence_high = q3+1.5*iqr
+    df_out = df_in.loc[(df_in[col_name] > fence_low) & (df_in[col_name] < fence_high)]
+    df_ab = df_in.loc[(df_in[col_name] < fence_low) & (df_in[col_name] > fence_high)]
+    for i, row in df_in.iterrows():
+        if df_in.at[i, col_name] < fence_low or df_in.at[i, col_name] > fence_high:
+            if i == 0:
+                df_in.at[i, col_name] = df_out[col_name].mean()
+            else:
+                df_in.at[i, col_name] = df_out[col_name].mean()
+    return df_ab
+
 #  Main
 if __name__ == "__main__":
     d = {'col1': [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
@@ -80,11 +97,13 @@ if __name__ == "__main__":
 
 def main(managerDonnees):
     for site in managerDonnees.GetListNameSite():
-        df = managerDonnees.GetSite(site).consoList
-        dg = managerDonnees.GetSite(site).tempList
-        print(df)
-        lancer_nettoyage(df, 'TOT_A')
-        lancer_nettoyage(df, df[1])
-        print(df)
+        list_df = managerDonnees.GetSite(site).consoList
+        list_dg = managerDonnees.GetSite(site).tempList
+        for df in list_df:
+            remove_outlier(df, 'TOT_A')
+            remove_outlier(df, 'PUISSANCE_A')
+        for df in list_dg:
+            remove_outlier(df, 'CV')
 
-
+    
+    print('ok moduleNettoyage')
