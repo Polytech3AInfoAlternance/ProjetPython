@@ -11,4 +11,4 @@ class Site:
         self.tempList.append(ptemp)
 
     def addConsoList(self, pconso):
-        self.tempList.append(pconso)
+        self.consoList.append(pconso)
