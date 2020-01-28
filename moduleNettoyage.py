@@ -80,8 +80,8 @@ def main(managerDonnees):
         df = managerDonnees.GetSite(site).consoList
         dg = managerDonnees.GetSite(site).tempList
         print(df)
-        lancer_nettoyage(df, 'TOT_A', 6)
-        lancer_nettoyage(df, df[1], 6)
+        lancer_nettoyage(df, 'TOT_A')
+        lancer_nettoyage(df, df[1])
         print(df)
 
 
