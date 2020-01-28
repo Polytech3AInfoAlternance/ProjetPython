@@ -10,6 +10,7 @@ import pandas as pd
 #  Définitions des fonctions
 
 def lancer_nettoyage(df, column_name):
+    df[column_name].fillna(0, inplace=True)
     moyenneGlobale = get_moyenne_propre(df, column_name)
     df_temp = df.copy()
     nettoyage(df, column_name, moyenneGlobale)
@@ -17,8 +18,10 @@ def lancer_nettoyage(df, column_name):
         df_temp = df.copy()
         nettoyage(df, column_name, moyenneGlobale)
 
+
 def lancer_nettoyage_index(df, index):
     column_name = df.columns[index]
+    df[column_name].fillna(0, inplace=True)
     moyenneGlobale = get_moyenne_propre(df, column_name)
     df_temp = df.copy()
     nettoyage(df, column_name, moyenneGlobale)
@@ -69,7 +72,7 @@ def get_moyenne_propre(df, column_name):
 #  Main
 if __name__ == "__main__":
     d = {'col1': [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
-         'col2': [93, -34, 55, 36, -75, 89, 67, 21, 49, -38, 12, 14, -11112, 1393]}
+         'col2': [93, -34, 55, 36, -75, 89, None, 21, 49, -38, 12, 14, -11112, 1393]}
     df = pd.DataFrame(data=d)
     lancer_nettoyage(df, 'col2')
     print(df)
