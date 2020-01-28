@@ -1,4 +1,5 @@
 from moduleChargementDonnees import ChargementManager
+import moduleNettoyage
 
 import moduleCorrelations
 
@@ -18,3 +19,4 @@ print('Chargement des données terminé')
 
 #-------------------VOS CODES-------------------#
 moduleCorrelations.main(managerDonnees)
+moduleNettoyage.main(managerDonnees)
