@@ -14,7 +14,7 @@ def lancer_nettoyage(df, column_name):
     df_temp = df.copy()
     nettoyage(df, column_name, moyenneGlobale)
     while not df.equals(df_temp):
-        df_temp = df
+        df_temp = df.copy()
         nettoyage(df, column_name, moyenneGlobale)
 
 def lancer_nettoyage_index(df, index):
@@ -23,7 +23,7 @@ def lancer_nettoyage_index(df, index):
     df_temp = df.copy()
     nettoyage(df, column_name, moyenneGlobale)
     while not df.equals(df_temp):
-        df_temp = df
+        df_temp = df.copy
         nettoyage(df, column_name, moyenneGlobale)
 
 def nettoyage(df, column_name, moyenne):
@@ -76,14 +76,10 @@ if __name__ == "__main__":
     print('ok moduleNettoyage')
 
 def main(managerDonnees):
-    #print(managerDonnees.GetSite('010000179B').consoList)
     for site in managerDonnees.GetListNameSite():
         df = managerDonnees.GetSite(site).consoList
         dg = managerDonnees.GetSite(site).tempList
         print(df)
-        #µprint(dg)
-        #d = {'col1': [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2], 'col2': [3, -4, 5, 6, -5, 9, 7, 1, 9, -8, 1, 4, -1, 139]}
-        #df = pd.DataFrame(data=d)
         lancer_nettoyage(df, 'TOT_A', 6)
         lancer_nettoyage(df, df[1], 6)
         print(df)
