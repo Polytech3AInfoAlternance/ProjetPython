@@ -9,22 +9,22 @@ import pandas as pd
 
 #  Définitions des fonctions
 
-def lancer_nettoyage(df, column_name, nb_iter):
+def lancer_nettoyage(df, column_name):
     moyenneGlobale = get_moyenne_propre(df, column_name)
     df_temp = df.copy()
     nettoyage(df, column_name, moyenneGlobale)
     while not df.equals(df_temp):
         df_temp = df
-        df = nettoyage(df, column_name, moyenneGlobale)
+        nettoyage(df, column_name, moyenneGlobale)
 
-def lancer_nettoyage_index(df, index, nb_iter):
+def lancer_nettoyage_index(df, index):
     column_name = df.columns[index]
     moyenneGlobale = get_moyenne_propre(df, column_name)
     df_temp = df.copy()
     nettoyage(df, column_name, moyenneGlobale)
     while not df.equals(df_temp):
         df_temp = df
-        df = nettoyage(df, column_name, moyenneGlobale)
+        nettoyage(df, column_name, moyenneGlobale)
 
 def nettoyage(df, column_name, moyenne):
     ecart_moyen = 0
@@ -39,26 +39,10 @@ def nettoyage(df, column_name, moyenne):
     ecart_moyen = ecart_moyen/i
     for i, row in df.iterrows():
         val = df.at[i, column_name]
-        if val > 2*ecart_moyen:
-            df.at[i, column_name] = 2*ecart_moyen
-        else:
-            if val < -2*ecart_moyen:
-                df.at[i, column_name] = -2 * ecart_moyen
-            else:
-                compteurMoyenne = compteurMoyenne+df.at[i, column_name]
-    moyenne = compteurMoyenne/i
-    return [df, moyenne]
-
-# def remove_outlier(df_in, col_name):
-#     q1 = df_in[col_name].quantile(0.25)
-#     q3 = df_in[col_name].quantile(0.75)
-#     iqr = q3 - q1  # ecart interquartile
-#     fence_low = q1 - 1.5 * iqr
-#     fence_high = q3 + 1.5 * iqr
-#     df_out = df_in.loc[(df_in[col_name] > fence_low) & (df_in[col_name] < fence_high)]
-#     df_ab = df_in.loc[(df_in[col_name] < fence_low) & (df_in[col_name] > fence_high)]
-#
-#     return df_out
+        if val > 1.5*ecart_moyen:
+            df.at[i, column_name] = val%ecart_moyen
+        elif val < -1.5*ecart_moyen:
+            df.at[i, column_name] = -(val%ecart_moyen)
 
 def get_moyenne_propre(df, column_name):
     moyenne = df[column_name].mean()
@@ -84,6 +68,11 @@ def get_moyenne_propre(df, column_name):
 
 #  Main
 if __name__ == "__main__":
+    d = {'col1': [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+         'col2': [93, -34, 55, 36, -75, 89, 67, 21, 49, -38, 12, 14, -11112, 1393]}
+    df = pd.DataFrame(data=d)
+    lancer_nettoyage(df, 'col2')
+    print(df)
     print('ok moduleNettoyage')
 
 def main(managerDonnees):
