@@ -38,9 +38,17 @@ class Analyse:
         dfList = self.site.tempList  # Return one dataframe per temperature
         while i < borneSup:
             ax = plt.gca()
+            cpt = 1
+            legend = []
             for df in dfList:
+                legend.append("Temp " + str(cpt))
                 df = df.iloc[i * pas:i * pas + pas, :]
-                df.plot(kind='line', x='Date', y='CV', ax=ax, color='red')
+                df.plot(kind='line', x='Date', y='CV', ax=ax)
+                cpt = cpt + 1
+            ax.legend(legend)
+            plt.title("Temperature evolution")
+            plt.ylabel("Temperature (°C)")
+            plt.xlabel("Date")
             plt.show()
             i = i + 1
 
