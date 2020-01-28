@@ -18,5 +18,5 @@ print('Chargement des données terminé')
     print(managerDonnees.GetSite(site).tempList)'''
 
 #-------------------VOS CODES-------------------#
-moduleCorrelations.main(managerDonnees)
 moduleNettoyage.main(managerDonnees)
+moduleCorrelations.main(managerDonnees)
