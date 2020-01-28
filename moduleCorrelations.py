@@ -4,38 +4,62 @@ from pandas import DataFrame
 import seaborn as sn
 import matplotlib.pyplot as plt
 
+
 if __name__ == "__main__":
     print('ok moduleCorrelations')
 
-def main():
+def main(managerDonnees):
+    Data = {}
+    DataP = {}
+    DataT = {}
+    siteName = [];
+    plt.subplots(figsize=[10, 8])
 
-    Data = {'Site D': [],
-            'Site E': []
-            }
+    j=0;
 
-    df1 = pandas.DataFrame({'Date': ['01/01/2020', '01/02/2020', '01/03/2020', '01/04/2020', '01/05/2020'], 'TOT_A': [10, 40, 35, 30, 20], 'PUISSANCE_A': [78, 90, 80, 80, 70]});
-    df2 = pandas.DataFrame({'Date': ['01/01/2020', '01/02/2020', '01/03/2020', '01/04/2020', '01/05/2020'], 'TOT_A': [20, 40, 15, 25, 10], 'PUISSANCE_A': [78, 90, 80, 80, 80]});
-    #df2 = pandas.DataFrame({'Date': ['01/01/2020', '01/02/2020'], 'CV': [34, 20]});
-    Data['Site D'] = df1['TOT_A']
-    Data['Site E'] = df2['TOT_A']
+    for site in managerDonnees.GetListNameSite():
 
-    df = DataFrame(Data, columns=['Site D', 'Site E'])
+        # TOT_A
+        consoList = managerDonnees.GetSite(site).consoList
+        Data['' + site] = [float(i) for i in consoList[0]['TOT_A'][:].tolist()]
 
+        #PUISSANCE
+        consoListP = managerDonnees.GetSite(site).consoList
+        DataP['' + site] = [float(i) for i in consoListP[0]['PUISSANCE_A'][:].tolist()]
+
+        # TEMPERATURE
+        tempList = managerDonnees.GetSite(site).tempList
+        DataT['' + site] = [float(i) for i in tempList[1]['CV'][:40000].tolist()]
+
+        j += 1
+        siteName.append(managerDonnees.GetSite(site).name)
+
+
+
+    df = DataFrame(Data, columns=siteName)
+    dfP = DataFrame(DataP, columns=siteName)
+    dfT=DataFrame(DataT, columns=siteName)
     corrMatrix = df.corr()
-    plt.subplots(figsize=[10,8])
+    corrMatrixP = dfP.corr()
+    corrMatrixT =dfT.corr()
+
+
+
     plt.subplot(221)
     plt.title('TOT_A')
     ax = sn.heatmap(corrMatrix, annot=True)
     bottom, top = ax.get_ylim()
     ax.set_ylim(bottom + 0.5, top - 0.5)
+
     plt.subplot(222)
     plt.title('Puissance A')
-    ax = sn.heatmap(corrMatrix, annot=True)
-    bottom, top = ax.get_ylim()
-    ax.set_ylim(bottom + 0.5, top - 0.5)
+    axp = sn.heatmap(corrMatrixP, annot=True)
+    bottom, top = axp.get_ylim()
+    axp.set_ylim(bottom + 0.5, top - 0.5)
+
     plt.subplot(223)
     plt.title('Température')
-    ax = sn.heatmap(corrMatrix, annot=True)
-    bottom, top = ax.get_ylim()
-    ax.set_ylim(bottom + 0.5, top - 0.5)
+    axT = sn.heatmap(corrMatrixT, annot=True)
+    bottom, top = axT.get_ylim()
+    axT.set_ylim(bottom + 0.5, top - 0.5)
     plt.show()

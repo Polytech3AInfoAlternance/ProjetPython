@@ -1,5 +1,7 @@
 from moduleChargementDonnees import ChargementManager
 
+import moduleCorrelations
+
 managerDonnees = ChargementManager()
 managerDonnees.ReadJSON('data.json')
 print('Chargement des données terminé')
@@ -15,3 +17,4 @@ print('Chargement des données terminé')
     print(managerDonnees.GetSite(site).tempList)'''
 
 #-------------------VOS CODES-------------------#
+moduleCorrelations.main(managerDonnees)
