@@ -4,8 +4,13 @@ from moduleAnalyseDonneesBrutes import Analyse
 managerDonnees = ChargementManager()
 managerDonnees.ReadJSON('data.json')
 
-site1 = Analyse(managerDonnees.GetSite("0100001797"));
-site1.TracePlot()
+sites = managerDonnees.GetListNameSite()
+for site in sites:
+    site = Analyse(managerDonnees.GetSite(site), site);
+    site.init()
+    site.TracePlot()
+    site.TraceTempPowerConsumption()
+    site.getCorr()
 
 print('Chargement des données terminé')
 
