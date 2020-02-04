@@ -80,7 +80,7 @@ class Analyse:
             loopPuissance_a.plot(kind='line', x='Date', y='PUISSANCE_A', ax=ax)
 
             ax.legend(legend)
-            plt.title("Comparison between power, consumption and power")
+            plt.title("Comparison between power, consumption and temperature")
             plt.ylabel("")
             plt.xlabel("Date")
             plt.show()
@@ -98,6 +98,22 @@ class Analyse:
         bottom, top = ax.get_ylim()
         ax.set_ylim(bottom + 0.5, top - 0.5)
         plt.show()
+
+    def getCorrInterval(self):
+        temp = self.getMoyenne(self.site.tempList, 'CV')
+        tot_a = self.getMoyenne(self.site.consoList, 'TOT_A')
+        puissance_a = self.getMoyenne(self.site.consoList, 'PUISSANCE_A')
+        d = {'CV': temp, 'TOT_A': tot_a, 'PUISSANCE_A': puissance_a}
+
+        df = pandas.DataFrame(data=d)
+        plt.subplot(221)
+        i = self.borneInf
+        while i < self.borneSup:
+            ax = sns.heatmap(df.iloc[i * self.pas:i * self.pas + self.pas, :].corr(), annot=True)
+            bottom, top = ax.get_ylim()
+            ax.set_ylim(bottom + 0.5, top - 0.5)
+            plt.show()
+            i = i + 1
 
     # Récupérer la moyenne d'un attribut d'une liste de dataframe
     # listData: la liste de dataframe

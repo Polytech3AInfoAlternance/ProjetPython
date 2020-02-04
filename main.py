@@ -10,6 +10,7 @@ for site in sites:
     site.init()
     site.TracePlot()
     site.TraceTempPowerConsumption()
+    site.getCorrInterval()
     site.getCorr()
 
 print('Chargement des données terminé')
