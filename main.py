@@ -1,10 +1,20 @@
 from moduleChargementDonnees import ChargementManager
 import moduleNettoyage
-
 import moduleCorrelations
+from moduleAnalyseDonneesBrutes import Analyse
 
 managerDonnees = ChargementManager()
 managerDonnees.ReadJSON('data.json')
+
+sites = managerDonnees.GetListNameSite()
+for site in sites:
+    site = Analyse(managerDonnees.GetSite(site), site);
+    site.init()
+    site.TracePlot()
+    site.TraceTempPowerConsumption()
+    site.getCorrInterval()
+    site.getCorr()
+
 print('Chargement des données terminé')
 
 #Exemple d'utilisation afin de récupérer le nom d'un site
